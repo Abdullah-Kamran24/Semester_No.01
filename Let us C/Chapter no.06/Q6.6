@@ -1,1 +1,29 @@
-werrt
+#include <stdio.h>
+int main(){
+   float p,q,r,n;
+   float a =1;
+
+   for(int i=1; i <= 10; i++){
+    printf("\n\nSET %d:\n",i);
+    printf("Enter the amount of the compound interest: ");
+   scanf("%f",&p);
+   printf("Enter the the number of times the interest is compounded per year: ");
+   scanf("%f",&q);
+   printf("Enter the annual rate: ");
+   scanf("%f",&r);
+   printf("Enter the anuual rate which the interest is compounded: ");
+   scanf("%f",&n);
+
+   float part1 = p;
+   float part2 = 1 + r / q;
+
+   for(int j = 0; j < n*q; j++){
+      a = part1 * part2;
+   }
+   printf("a = %.2f",a);
+   }
+   return 0;
+}
+
+
+
