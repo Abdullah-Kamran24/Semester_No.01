@@ -1,1 +1,30 @@
-.hello..
+#include <stdio.h>
+
+int main(){
+
+int x,y;
+
+printf("Enter the X axis: ");
+scanf("%d",&x);
+
+printf("Enter the Y axis: ");
+scanf("%d",&y);
+
+if(x == 0 && y == 0){
+printf("BOTH LIES ON THE ORIGIN\n");
+}
+
+if(x != 0 && y == 0){
+printf("point lies on the Y axis\n ");
+}
+
+if(x == 0 && y != 0){
+printf("Point lies on the X axis\n");
+}
+
+else{
+printf("Invalid input\n");
+}
+return 0;
+}
+
