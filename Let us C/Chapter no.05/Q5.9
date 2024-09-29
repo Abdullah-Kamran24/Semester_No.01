@@ -1,1 +1,32 @@
-mdmdmd
+#include <stdio.h>
+
+int main() {
+    int small,large,n,num,range;
+    int count = 1;
+
+    printf("Enter the total elements of a number: ");
+    scanf("%d",&n);
+
+    printf("Enter the number %d: ",count);
+    scanf("%d", &num);
+
+    small = num;
+    large = num;
+
+    while(count < n){
+        count++;
+        printf("Enter the number %d: ",count);
+        scanf("%d", &num);
+
+        if(num < small){
+            small = num;
+        }
+        else if(num > large){
+            large = num;
+        }
+    }
+    range = large - small;
+    printf("The range of the %d number: %d\n",n,range);
+    return 0;
+}
+
