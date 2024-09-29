@@ -1,1 +1,63 @@
-223
+
+#include <stdio.h>
+#include <math.h>
+
+// Function to calculate the distance between two points
+void distance(double x1, double y1, double x2, double y2, double *dist) {
+    *dist = sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+}
+
+// Function to calculate the area of a triangle given its vertices
+void triangle_area(double x1, double y1, double x2, double y2, double x3, double y3, double *area) {
+    *area = fabs(x1*(y2 - y3) + x2*(y3 - y1) + x3*(y1 - y2)) / 2.0;
+}
+
+// Function to check if a point (x, y) lies inside the triangle ABC
+void is_point_inside_triangle(double x1, double y1, double x2, double y2, double x3, double y3, double x, double y, int *inside) {
+    double area_total, area1, area2, area3;
+
+    // Calculate the area of the whole triangle
+    triangle_area(x1, y1, x2, y2, x3, y3, &area_total);
+
+    // Calculate the area of the triangles formed with the point (x, y)
+    triangle_area(x, y, x2, y2, x3, y3, &area1);
+    triangle_area(x1, y1, x, y, x3, y3, &area2);
+    triangle_area(x1, y1, x2, y2, x, y, &area3);
+
+    // Check if the sum of the areas of the smaller triangles equals the area of the whole triangle
+    if (fabs((area1 + area2 + area3) - area_total) < 1e-9) {
+        *inside = 1;
+    } else {
+        *inside = 0;
+    }
+}
+
+int main() {
+    double x1, y1, x2, y2, x3, y3;
+    double x, y;
+    int inside;
+
+    // Input vertices of the triangle
+    printf("Enter the coordinates of vertex A (x1, y1): ");
+    scanf("%lf %lf", &x1, &y1);
+    printf("Enter the coordinates of vertex B (x2, y2): ");
+    scanf("%lf %lf", &x2, &y2);
+    printf("Enter the coordinates of vertex C (x3, y3): ");
+    scanf("%lf %lf", &x3, &y3);
+
+    // Input the point to check
+    printf("Enter the coordinates of the point (x, y): ");
+    scanf("%lf %lf", &x, &y);
+
+    // Check if the point is inside the triangle
+    is_point_inside_triangle(x1, y1, x2, y2, x3, y3, x, y, &inside);
+
+    if (inside) {
+        printf("The point (%.2lf, %.2lf) lies inside the triangle.\n", x, y);
+    } else {
+        printf("The point (%.2lf, %.2lf) lies outside the triangle.\n", x, y);
+    }
+
+    return 0;
+}
+
