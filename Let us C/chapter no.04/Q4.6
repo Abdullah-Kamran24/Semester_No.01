@@ -1,1 +1,55 @@
+#include <stdio.h>
+
+//BMI = kg/m2 formula
+
+int main(){
+
+float weight,height;
+float bmi;
+
+printf("\t\tWELCOME TO THE BMI CALCULATOR:");
+
+printf("\nEnter the weight (in kilogram): ");
+scanf("%f", &weight);
+
+printf("Enter the height (in meter): ");
+scanf("%f", &height);
+
+bmi = weight / (height * height);
+
+printf("\nBMI category:");
+if(bmi < 15){
+printf("\n\t\starvation\n");
+}
+
+else if(bmi >= 15.1 && bmi <= 17.5){
+printf("\n\t\tAnorexic\n");
+}
+
+else if(bmi >= 17.6 && bmi <= 18.5){
+printf("\n\t\tUnderweight\n");
+}
+
+else if(bmi >= 18.6 && bmi <= 24.9){
+printf("\n\t\tIdeal\n");
+}
+
+else if(bmi >= 25 && bmi <= 25.9){
+printf("\n\t\tOverweight\n");
+}
+
+else if(bmi >= 30 && bmi <= 30.9){
+printf("\n\t\tObese\n");
+}
+
+else if(bmi >= 40){
+printf("\n\t\tMorbidly Obese\n");
+}
+
+else{
+printf("\n\t\tInvalid ! out of range\n");
+}
+
+return 0;
+}
 
