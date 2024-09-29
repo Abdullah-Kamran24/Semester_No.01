@@ -1,1 +1,22 @@
-#include
+#include <stdio.h>
+
+int main(){
+int c,d;
+int temp;
+
+printf("Enter the value of C : ");
+scanf("%d", &c);
+
+printf("Enter the value of D : ");
+scanf("%d", &d);
+
+printf("The value of C and D before interchange: (%d , %d )\n" ,c,d);
+
+temp = c;
+c = d;
+d = temp;
+
+printf("The value of C and D after interchange : (%d , %d)\n",c,d);
+
+return 0;
+}
